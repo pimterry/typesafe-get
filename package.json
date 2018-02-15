@@ -1,0 +1,33 @@
+{
+  "name": "typesafe-get",
+  "version": "1.0.0",
+  "description": "A typesafe way to get nested properties when any parent properties might be undefined, while we wait for the existential operator to finally exist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pimterry/typesafe-get.git"
+  },
+  "keywords": [
+    "typescript",
+    "typesafe",
+    "get",
+    "existential",
+    "operator",
+    "existential",
+    "operator",
+    "lookup",
+    "property",
+    "undefined",
+    "null",
+    "safe"
+  ],
+  "author": "Tim Perry <pimterry@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pimterry/typesafe-get/issues"
+  },
+  "homepage": "https://github.com/pimterry/typesafe-get#readme"
+}
