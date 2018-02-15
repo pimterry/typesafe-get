@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "umd",
+        "outDir": ".",
+        "declaration": true,
+        "sourceMap": true,
+        "strict": true
+    },
+    "compileOnSave": true,
+    "buildOnSave": true,
+    "files": [
+        "index.ts",
+        "test.ts"
+    ]
+}
