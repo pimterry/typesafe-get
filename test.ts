@@ -1,4 +1,4 @@
-import get = require('./index');
+import { get } from './index';
 import { expect } from 'chai';
 
 describe("typesafe-get", () => {
@@ -45,4 +45,14 @@ describe("typesafe-get", () => {
         let result = get(input, 'a', 'b');
         expect(result).to.equal(undefined);
     });
+
+    it("allows doubly nested lookup through potentially-undefined properties", () => {
+        const input: {
+            a?: { b?: { c?: number } }
+        } = {};
+
+        let result = get(input, 'a', 'b', 'c');
+
+        expect(result).to.equal(undefined);
+    })
 });
