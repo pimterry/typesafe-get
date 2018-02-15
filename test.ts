@@ -54,5 +54,15 @@ describe("typesafe-get", () => {
         let result = get(input, 'a', 'b', 'c');
 
         expect(result).to.equal(undefined);
-    })
+    });
+
+    it("allows triply nested lookup through potentially-undefined properties", () => {
+        const input: {
+            a?: { b?: { c?: { d?: string } } }
+        } = {};
+
+        let result = get(input, 'a', 'b', 'c', 'd');
+
+        expect(result).to.equal(undefined);
+    });
 });
