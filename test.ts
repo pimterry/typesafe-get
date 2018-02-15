@@ -16,4 +16,9 @@ describe("typesafe-get", () => {
         const input: { a?: string } = { };
         expect(get(input, 'a')).to.equal(undefined);
     });
+
+    it("lets you look up nested properties", () => {
+        const input = { a: { b: 1 } };
+        expect(get(input, 'a', 'b')).to.equal(1);
+    });
 });
