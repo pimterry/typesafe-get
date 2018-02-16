@@ -6,6 +6,21 @@ export function get<
     S1 extends keyof T,
     S2 extends keyof Prop<T, S1>,
     S3 extends keyof Prop<Prop<T, S1>, S2>,
+    S4 extends keyof Prop<Prop<Prop<T, S1>, S2>, S3>,
+    S5 extends keyof Prop<Prop<Prop<Prop<T, S1>, S2>, S3>, S4>
+>(
+    obj: T,
+    prop1: S1,
+    prop2: S2,
+    prop3: S3,
+    prop4: S4,
+    prop5: S5,
+): Prop<Prop<Prop<Prop<T, S1>, S2>, S3>, S4>[S5] | undefined;
+export function get<
+    T,
+    S1 extends keyof T,
+    S2 extends keyof Prop<T, S1>,
+    S3 extends keyof Prop<Prop<T, S1>, S2>,
     S4 extends keyof Prop<Prop<Prop<T, S1>, S2>, S3>
 >(
     obj: T,

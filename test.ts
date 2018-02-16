@@ -46,7 +46,7 @@ describe("typesafe-get", () => {
         expect(result).to.equal(undefined);
     });
 
-    it("allows doubly nested lookup through potentially-undefined properties", () => {
+    it("allows doubly nested lookup through undefined properties", () => {
         const input: {
             a?: { b?: { c?: number } }
         } = {};
@@ -56,7 +56,17 @@ describe("typesafe-get", () => {
         expect(result).to.equal(undefined);
     });
 
-    it("allows triply nested lookup through potentially-undefined properties", () => {
+    it("allows doubly nested lookup through defined properties", () => {
+        const input = {
+            a: { b: { c: 123 } }
+        };
+
+        let result = get(input, 'a', 'b', 'c');
+
+        expect(result).to.equal(123);
+    });
+
+    it("allows triply nested lookup through undefined properties", () => {
         const input: {
             a?: { b?: { c?: { d?: string } } }
         } = {};
@@ -64,5 +74,35 @@ describe("typesafe-get", () => {
         let result = get(input, 'a', 'b', 'c', 'd');
 
         expect(result).to.equal(undefined);
+    });
+
+    it("allows triply nested lookup through defined properties", () => {
+        const input = {
+            a: { b: { c: { d: 'hello' } } }
+        };
+
+        let result = get(input, 'a', 'b', 'c', 'd');
+
+        expect(result).to.equal('hello');
+    });
+
+    it("allows quadruply nested lookup through undefined properties", () => {
+        const input: {
+            a?: { b?: { c?: { d?: { e?: {} } } } }
+        } = {};
+
+        let result = get(input, 'a', 'b', 'c', 'd', 'e');
+
+        expect(result).to.equal(undefined);
+    });
+
+    it("allows quadruply nested lookup through defined properties", () => {
+        const input = {
+            a: { b: { c: { d: { e: {} } } } }
+        };
+
+        let result = get(input, 'a', 'b', 'c', 'd', 'e');
+
+        expect(result).to.deep.equal({});
     });
 });
