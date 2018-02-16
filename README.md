@@ -1,4 +1,4 @@
-# typesafe-get
+# typesafe-get [![Travis Build Status](https://img.shields.io/travis/pimterry/typesafe-get.svg)](https://travis-ci.org/pimterry/typesafe-get) [![Uses TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue.svg)](http://typescriptlang.org)
 
 A typesafe way to get nested properties when any parent properties might be undefined, while we wait for the [optional chaining operator](https://tc39.github.io/proposal-optional-chaining/) to finally exist.
 
