@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A typesafe way to get nested properties when any parent properties might be undefined, while we wait for the existential operator to finally exist",
   "main": "index.js",
+  "types": "index.ts",
   "files": [
     "index.js",
     "index.ts"
