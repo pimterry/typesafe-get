@@ -6,10 +6,12 @@
   "types": "index.ts",
   "files": [
     "index.js",
+    "index.js.map",
     "index.ts"
   ],
   "scripts": {
-    "test": "mocha -r ts-node/register test.ts"
+    "test": "mocha -r ts-node/register test.ts",
+    "prepublishOnly": "tsc"
   },
   "repository": {
     "type": "git",
