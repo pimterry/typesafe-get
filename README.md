@@ -2,10 +2,10 @@
 
 A typesafe way to get nested properties when any parent properties might be undefined, while we wait for the [optional chaining operator](https://tc39.github.io/proposal-optional-chaining/) to finally exist.
 
-Typesafe make the below TypeScript code run, without throwing any exceptions, for all valid values of `input`:
+With typesafe get, the below TypeScript code will run, without throwing any exceptions, for all valid values of `input`:
 
 ```ts
-let input: { a: { b?: { c: null | { d: string } } } } = { ... };
+let input: { a: { b?: { c: null | { d: string } } } } | undefined = ...;
 let result: string | undefined = get(input, 'a', 'b', 'c', 'd');
 ```
 

@@ -17,6 +17,11 @@ describe("typesafe-get", () => {
         expect(get(input, 'a')).to.equal(undefined);
     });
 
+    it("lets you look up properties on a possibly undefined object", () => {
+        let input: { a: string } | undefined;
+        expect(get(input, 'a')).to.equal(undefined);
+    });
+
     it("lets you look up nested properties", () => {
         const input = { a: { b: 1 } };
         expect(get(input, 'a', 'b')).to.equal(1);
@@ -26,6 +31,12 @@ describe("typesafe-get", () => {
         const input: { a?: { b: number } } = { };
         let result = get(input, 'a', 'b');
         expect(result).to.equal(undefined);
+    });
+
+    it("lets you look up nested properties that may be undefined on a possibly undefined object", () => {
+        let input: { a: { b: number } } | undefined;
+        let result = get(input, 'a', 'b');
+        expect(result).to.deep.equal(undefined);
     });
 
     it("correctly infers the type of a nested possibly-null property", () => {
@@ -54,6 +65,14 @@ describe("typesafe-get", () => {
         let result = get(input, 'a', 'b', 'c');
 
         expect(result).to.equal(undefined);
+    });
+
+    it("allows quadruply nested lookup through undefined properties on a possibly undefined object", () => {
+        let input: { a?: { b?: { c?: number } } } | undefined;
+
+        let result = get(input, 'a', 'b', 'c');
+
+        expect(result).to.deep.equal(undefined);
     });
 
     it("allows doubly nested lookup through defined properties", () => {
@@ -94,6 +113,16 @@ describe("typesafe-get", () => {
         let result = get(input, 'a', 'b', 'c', 'd', 'e');
 
         expect(result).to.equal(undefined);
+    });
+
+    it("allows quadruply nested lookup through undefined properties on a possibly undefined object", () => {
+        let input: {
+            a?: { b?: { c?: { d?: { e?: {} } } } }
+        } | undefined;
+
+        let result = get(input, 'a', 'b', 'c', 'd', 'e');
+
+        expect(result).to.deep.equal(undefined);
     });
 
     it("allows quadruply nested lookup through defined properties", () => {
