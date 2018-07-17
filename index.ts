@@ -59,7 +59,7 @@ export function get<
 >(
     obj: T | undefined,
     prop1: S1
-): Prop<Defined<T>, S1>;
+): Prop<Defined<T>, S1> | undefined;
 export function get<T>(
     obj: T,
     ...props: string[]

@@ -9,7 +9,7 @@ describe("typesafe-get", () => {
 
     it("correctly infers the type of a queried property", () => {
         let result = get({ result: { value: 'neat' } }, 'result');
-        expect(result.value).to.equal('neat');
+        expect(result!.value).to.equal('neat');
     });
 
     it("lets you look up possibly undefined properties", () => {
