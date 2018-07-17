@@ -1,6 +1,9 @@
-// The '& {}' hereeffectively eliminates undefined from the return type for us.
-export type Defined<T> = T & { };
-export type Prop<T, S extends keyof T> = Defined<T[S]>;
+// Given an object T - returns a type with undefined/null removed from
+// the types of any fields.
+export type Defined<T> = {
+    [K in keyof T]-?: Exclude<T[K], null>
+};
+export type Prop<T, S extends keyof T> = Defined<T>[S];
 
 export function get<
     T,
