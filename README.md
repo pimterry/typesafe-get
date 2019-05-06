@@ -27,10 +27,26 @@ npm install --save typesafe-get
 ## Use it
 
 This module ships with TypeScript types, and is built in JS for UMD, so you should
-be able to immediately start using it in any environment with no further setup.
+be able to immediately start using it in many environments with no further setup.
+
+With some webpack configurations, you'll need to explicitly allow requiring UMD modules.
+To do that you can use [UMD-Compat-Loader](https://www.npmjs.com/package/umd-compat-loader),
+like so:
+
+```js
+module: {
+    rules: [
+        // ...other rules here
+        {
+            // You can use (typesafe-get|other-module) if you're using multiple UMD modules
+            test: /node_modules[\\|/]typesafe-get/,
+            use: { loader: 'umd-compat-loader' }
+        }
+    ]
+}
+```
 
 The `get` function is exported as both a property and the default export of this module.
-
 That means importing looks like:
 
 ```ts
