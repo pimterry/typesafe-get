@@ -3,7 +3,7 @@
         "target": "es5",
         "module": "umd",
         "outDir": ".",
-        "declaration": false,
+        "declaration": true,
         "sourceMap": true,
         "strict": true
     },
