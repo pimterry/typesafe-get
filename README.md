@@ -66,6 +66,9 @@ get(obj, 'key1', 'key2');
 
 // Equivalent to obj.key1.key2.key3.key4.key5, but returning undefined if any step en route is undefined:
 get(obj, 'key1', 'key2', 'key3', 'key4', 'key5');
+
+// Equivalent to array[0].key1, but returning undefined if any step en route is undefined:
+get(array, 0, 'key1');
 ```
 
 Each parameter name is checked against the valid parameter names at that level (so a parameter
@@ -78,10 +81,6 @@ if the whole chain is defined, or `undefined`.
 take a good hard look at yourself, and then feel free to open a PR - it should be fairly easy to see
 how to extend the types to support more. But only if you're _really_ sure you need this. Seriously,
 what are you doing that makes this a good idea.
-
-`get` does _not_ support array indexes, only string-indexed object properties. This is a
-typing limitation (the runtime implementation can actually handle this). I'd like to look at improving that
-in future, but I haven't yet. Feel free to open a PR!
 
 ## Contributing
 

@@ -45,6 +45,19 @@ describe("typesafe-get", () => {
         expect(result!.c).to.equal(5);
     });
 
+    it("lets you lookup through array indexes", () => {
+        const input = {
+            x: [
+                { a: { b: 'abc' } },
+                { a: { b: 'def' } }
+            ]
+        };
+
+        let result = get(input, 'x', 0, 'a');
+
+        expect(result!.b).to.equal('abc');
+    });
+
     it("returns null if the final property is null", () => {
         const input: { a: number | null } = { a: null };
         let result = get(input, 'a');
