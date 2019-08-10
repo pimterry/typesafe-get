@@ -1,8 +1,8 @@
 # typesafe-get [![Travis Build Status](https://img.shields.io/travis/pimterry/typesafe-get.svg)](https://travis-ci.org/pimterry/typesafe-get) [![Uses TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue.svg)](http://typescriptlang.org)
 
-A typesafe way to get nested properties when any parent properties might be undefined, while we wait for the [optional chaining operator](https://tc39.github.io/proposal-optional-chaining/) to finally exist.
+A typesafe way to access nested properties through potentially-undefined parent properties, while we wait for the [optional chaining ?. operator](https://tc39.github.io/proposal-optional-chaining/) to finally exist and get [real TypeScript support](https://github.com/microsoft/TypeScript/issues/16#issuecomment-55315658).
 
-With typesafe get, the below TypeScript code will run, without throwing any exceptions, for all valid values of `input`:
+With typesafe-get, the below TypeScript code will work, without no compile or runtime errors, for all valid values of `input`:
 
 ```ts
 let input: { a: { b?: { c: null | { d: string } } } } | undefined = ...;
