@@ -3,11 +3,11 @@
   "version": "2.0.1",
   "description": "A typesafe way to get nested properties when any parent property might be undefined, while we wait for the optional chaining operator to finally exist",
   "main": "index.js",
-  "types": "index.ts",
+  "types": "index.d.ts",
   "files": [
     "index.js",
     "index.js.map",
-    "index.ts"
+    "index.d.ts"
   ],
   "scripts": {
     "test": "mocha -r ts-node/register test.ts",
