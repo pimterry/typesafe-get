@@ -1,6 +1,6 @@
 // Given an object T - returns a type with undefined/null removed from
 // the types of any fields.
-export type Defined<T> = Exclude<Exclude<T, null>, undefined>;
+export type Defined<T> = Exclude<T, null | undefined>;
 // The value of T[S], if it's not null/undefined
 export type Prop<T, S extends keyof T> = Defined<T[S]>;
 
